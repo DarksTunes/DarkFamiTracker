@@ -719,7 +719,7 @@ void CChannelHandler::UpdateNoteRelease()		// // //
 void CChannelHandler::UpdateNoteVolume()		// // //
 {
 	// Delayed channel volume (Mxy)
-	if (m_iNoteVolume > 0) if (!--m_iNoteVolume) {
+	if ( (m_iNoteVolume > 0 && (!--m_iNoteVolume)) || m_iNoteVolume == 0 ) {
 		m_iVolume = m_iNewVolume;
 		if (m_iVolSlideTarget >= 0) {			// // !!
 			m_iVolSlideTarget = -1;
