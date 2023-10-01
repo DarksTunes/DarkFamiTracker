@@ -624,7 +624,7 @@ bool CChannelHandler::HandleEffect(effect_t EffCmd, unsigned char EffParam)
 		m_iNoteRelease = EffParam + 1;
 		break;
 	case EF_DELAYED_VOLUME:		// // //
-		if (!(EffParam >> 4) || !(EffParam & 0xF)) break;
+		if (!(EffParam & 0xF)) break;
 		m_iNoteVolume = (EffParam >> 4) + 1;
 		m_iNewVolume = (EffParam & 0x0F) << VOL_COLUMN_SHIFT;
 		break;
